@@ -18,27 +18,26 @@ def generate():
     return birthdays
 
 
-def print_birthdays(birthdays):
-    print(birthdays)
-
-
 def check_list(birthdays):
-    for days in birthdays:
-        if days in birthdays:
-            print("yes")
+    birthday_set = set(birthdays)
+    if len(birthday_set) < len(birthdays):
+        return True
+    else:
+        return False
 
 
 def show_user(number_same):
-    print(number_same, "times there were two of the same birthday")
+    print(number_same, "time(s) there were two of the same birthday")
 
 
 def main():
     num = user_number()
     for y in range(num):
         birthdays = generate()
-        print_birthdays(birthdays)
-        number_same = check_list(birthdays)
-        show_user(number_same)
+    number_same = 0
+    if check_list(birthdays) == True:
+        number_same += 1
+    show_user(number_same)
 
 
 main()
